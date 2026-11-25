@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Opus</title>
+  <meta name="theme-color" content="#1c2c63">
+  <meta name="referrer" content="no-referrer">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <video class="bg" autoplay muted loop playsinline preload="auto" aria-hidden="true"
+         poster="{{ url_for('static', filename='media/poster.jpg') }}">
+    <source src="{{ url_for('static', filename='media/opus-bg.webm') }}" type="video/webm">
+    <source src="{{ url_for('static', filename='media/opus-bg.mp4') }}" type="video/mp4">
+  </video>
+  <div class="veil" aria-hidden="true"></div>
+
+  <main class="app">
+    <header class="top">
+      <span class="mark">Opus</span>
+      <button class="ghost" id="newChat" type="button">New chat</button>
+    </header>
+
+    <section class="log" id="log" role="log" aria-live="polite" aria-label="Conversation">
+      <div class="empty" id="empty">
+        <h1>Ask anything</h1>
+        <p class="sub">Clear plain answers on any topic</p>
+        <div class="starters">
+          <button type="button" class="starter">Explain how black holes form</button>
+          <button type="button" class="starter">Help me build a study routine</button>
+          <button type="button" class="starter">Write a short poem about the sea</button>
+        </div>
+      </div>
+    </section>
+
+    <form class="composer" id="composer" autocomplete="off">
+      <textarea id="input" rows="1" maxlength="2000" placeholder="Message Opus" aria-label="Message Opus"></textarea>
+      <button class="send" id="send" type="submit" aria-label="Send message" disabled>
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+      </button>
+    </form>
+  </main>
+
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+  <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+</body>
+</html>
